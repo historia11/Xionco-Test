@@ -51,5 +51,10 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek di lingkungan lokal Anda.
 ### 1. Klon Repositori
 
 ```bash
-git clone <URL_REPOSITORI_ANDA>
-cd admin-toko # Atau nama folder proyek Anda
+git clone https://github.com/historia11/Xionco-Test.git)
+xionco test/cd admin-toko
+- Instal Dependensi
+   npm install
+- Konfigurasi Database
+- Jalankan Aplikasi
+   node app.js
