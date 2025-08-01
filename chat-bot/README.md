@@ -1,6 +1,3 @@
-# 🤖 Simple AI Chatbot
-
-Proyek ini adalah implementasi *chatbot* sederhana yang terintegrasi dengan Google Gemini API, memungkinkan percakapan interaktif melalui antarmuka web.
 
 ---
 
@@ -42,7 +39,7 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek di lingkungan lokal Anda.
 
 ```bash
 - git clone (https://github.com/historia11/Xionco-Test.git)
-- cd xionco test/simple-chatbot
+- cd xionco test/chat-bot
 - npm install
 - Konfigurasi Google Gemini API Key
 Mendapatkan API Key:
