@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Pembelian</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Daftar Pembelian</h1>
+        <p><a href="/admin/pembelian/input" class="button">Tambah Pembelian Baru</a></p>
+
+        <% if (success) { %>
+            <div class="alert success"><%= success %></div>
+        <% } %>
+        <% if (error) { %>
+            <div class="alert error"><%= error %></div>
+        <% } %>
+
+        <% if (pembelian.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Pembelian</th>
+                        <th>Produk</th>
+                        <th>Jumlah Beli</th>
+                        <th>Total Harga</th>
+                        <th>Tanggal Beli</th>
+                        <th>Nama Pembeli</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% pembelian.forEach(item => { %>
+                        <tr>
+                            <td><%= item.id_pembelian %></td>
+                            <td><%= item.nama_produk %></td>
+                            <td><%= item.jumlah_beli %></td>
+                            <td>Rp<%= item.total_harga.toLocaleString('id-ID') %></td>
+                            <td><%= new Date(item.tanggal_beli).toLocaleString('id-ID') %></td>
+                            <td><%= item.nama_pembeli %></td>
+                            <td><%= item.status_pembelian %></td>
+                            <td>
+                                <% if (item.status_pembelian === 'Selesai') { %>
+                                    <form action="/admin/pembelian/cancel/<%= item.id_pembelian %>" method="POST" style="display:inline;">
+                                        <button type="submit" class="button button-cancel" onclick="return confirm('Yakin ingin membatalkan pembelian ini?');">Batalkan</button>
+                                    </form>
+                                <% } else { %>
+                                    <span class="status-cancelled">Dibatalkan</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>Belum ada data pembelian.</p>
+        <% } %>
+    </div>
+</body>
+</html>
